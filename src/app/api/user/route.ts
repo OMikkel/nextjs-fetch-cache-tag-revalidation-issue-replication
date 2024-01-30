@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
     const file = await promises.readFile(process.cwd() + "/src/app/user.json", "utf-8");
+    if (!file) return NextResponse.json({ name: "", email: "" })
     const data = JSON.parse(file);
 
     return NextResponse.json(data)
