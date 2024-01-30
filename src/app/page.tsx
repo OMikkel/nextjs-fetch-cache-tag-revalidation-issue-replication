@@ -2,6 +2,8 @@ import ReloadButton from "@/components/reloadButton";
 import { getTime } from "@/lib/getTime";
 import { revalidateTag } from "next/cache";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
 	const currentTime = new Date().toISOString();
 	const time = await getTime();
@@ -12,6 +14,7 @@ export default async function Home() {
 				Replication of Vercel fetch cache revalidation issue
 			</h1>
 			<div className="grid grid-cols-2 gap-10">
+				<ReloadButton />
 				<div>
 					<h2 className="text-xl text-slate-900 font-semibold">Current time</h2>
 					<pre className="text-slate-900">{currentTime}</pre>
@@ -24,7 +27,6 @@ export default async function Home() {
 					<pre className="text-slate-900">{time.time}</pre>
 					<p>Revalidation tag: {"tag-with+123"}</p>
 				</div>
-				<ReloadButton />
 				<form
 					action={async () => {
 						"use server";
