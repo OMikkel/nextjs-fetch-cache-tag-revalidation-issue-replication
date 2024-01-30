@@ -1,5 +1,6 @@
 export const getTime = async () => {
     const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/time`, {
+        cache: "force-cache",
         next: {
             tags: ["tag-with+123"]
         }
