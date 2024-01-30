@@ -9,7 +9,7 @@ export default function ReloadButton() {
 			onClick={() => router.refresh()}
 			className="bg-blue-500 px-4 py-1 rounded-md text-white col-span-2"
 		>
-			Reload
+			Reload Page
 		</button>
 	);
 }

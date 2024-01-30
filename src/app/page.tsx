@@ -9,7 +9,7 @@ export default async function Home() {
 	const time = await getTime();
 
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-between p-24">
+		<main className="flex min-h-screen flex-col items-center justify-center gap-10 p-24">
 			<h1 className="text-2xl text-slate-900 font-semibold">
 				Replication of Vercel fetch cache revalidation issue
 			</h1>
@@ -18,14 +18,15 @@ export default async function Home() {
 				<div>
 					<h2 className="text-xl text-slate-900 font-semibold">Current time</h2>
 					<pre className="text-slate-900">{currentTime}</pre>
-					<p>Revalidation tag: {"tag-with+123"}</p>
 				</div>
 				<div>
 					<h2 className="text-xl text-slate-900 font-semibold">
-						Time from API
+						Cached time from API
 					</h2>
 					<pre className="text-slate-900">{time.time}</pre>
-					<p>Revalidation tag: {"tag-with+123"}</p>
+					<p>
+						Tag: <code>{"tag-with+123"}</code>
+					</p>
 				</div>
 				<form
 					action={async () => {
