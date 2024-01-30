@@ -1,3 +1,4 @@
+import ReloadButton from "@/components/reloadButton";
 import { getTime } from "@/lib/getTime";
 import { revalidateTag } from "next/cache";
 
@@ -23,7 +24,7 @@ export default async function Home() {
 					<pre className="text-slate-900">{time.time}</pre>
 					<p>Revalidation tag: {"tag-with+123"}</p>
 				</div>
-
+				<ReloadButton />
 				<form
 					action={async () => {
 						"use server";
